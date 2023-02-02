@@ -1,0 +1,94 @@
+ to insert and delete the element at the beginning
+
+void insb(int ele)
+{
+	struct node *nn = (struct node*) malloc(sizeof(struct node));
+	nn->data = ele;
+	nn->next = head;
+	head=nn;
+}
+void delb()
+{
+	if(head)
+	{
+		struct node *t=head;
+		head=head->next;
+		free(t);
+	}
+}
+void display()
+{
+    printf("\n");
+struct node *p=head;	
+		while(p)
+		{
+			printf("%d ",p->data);
+			p=p->next;
+		}
+}
+int main()
+{
+	int i;
+	for(i=10; i>=1; i--) insb(i);
+	display();
+	delb();
+	display();
+	insb(100);
+	display();
+return 0;
+}
+
+
+
+To insert element at end
+void inse(int ele)
+{
+ struct node *nn = (struct node*) malloc(sizeof(struct node));
+	nn->data = ele;
+	nn->next = NULL;
+	if(!head) 
+	{
+	nn->next = head;
+	head=nn;
+	return;
+	}
+	struct node *p=head;
+	while(p->next) p=p->next;
+	p->next=nn;
+}
+
+
+To delete the node AT END
+void dele()
+{
+	if(head)
+	{
+	    struct node *t;
+			if(head->next==NULL)
+			{
+				t=head;
+				head=head->next;
+			}
+			else
+			{
+				struct node *p=head;
+				while(p->next->next) p=p->next;
+				t=p->next;
+				p->next=NULL;
+			}
+			free(t);
+	}
+}
+
+
+T0 print revertse the linkedlist
+
+void dispR(struct node* head)
+	{
+		if(head)
+		{
+			dispR(head->next);
+			printf("%d ",head->data);
+		}
+	}
+
