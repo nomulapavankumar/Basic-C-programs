@@ -1,0 +1,11 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+ float side1,side2,side3,result,s;
+ scanf("%f %f %f",&side1,&side2,&side3);
+ s=(side1+side2+side3)/2;
+ result = sqrt(s*(s-side1)*(s-side2)*(s-side3));
+ printf("The Area of triangle:%.2f",result);
+ return 0;
+}
